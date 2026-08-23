@@ -96,7 +96,7 @@ export default function Register() {
                 <Input label="Confirm Password" type="password" id="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
 
                 <div className="pt-2 border-t border-gray-100">
-                    <Input label="Admin Code (Optional)" type="password" id="adminCode" placeholder="Enter 'admin123' to create Admin account" value={formData.adminCode} onChange={handleChange} />
+                    <Input label="Admin Code (Optional)" type="password" id="adminCode" placeholder="Enter '******' to create Admin account" value={formData.adminCode} onChange={handleChange} />
                 </div>
 
 
