@@ -46,7 +46,8 @@ export default function Register() {
             const user = userCredential.user;
 
             // 2. Create Firestore Document immediately
-            const role = formData.adminCode === 'admin123' ? 'admin' : 'officer';
+            const adminPasscode = import.meta.env.VITE_ADMIN_CODE || 'admin123';
+            const role = formData.adminCode === adminPasscode ? 'admin' : 'officer';
 
             await setDoc(doc(db, "users", user.uid), {
                 uid: user.uid,
@@ -96,7 +97,7 @@ export default function Register() {
                 <Input label="Confirm Password" type="password" id="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
 
                 <div className="pt-2 border-t border-gray-100">
-                    <Input label="Admin Code (Optional)" type="password" id="adminCode" placeholder="Enter '******' to create Admin account" value={formData.adminCode} onChange={handleChange} />
+                    <Input label="Admin Code (Optional)" type="password" id="adminCode" placeholder="Enter Admin Passcode" value={formData.adminCode} onChange={handleChange} />
                 </div>
 
 
